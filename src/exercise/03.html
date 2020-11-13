@@ -8,7 +8,12 @@
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
 
   <script type="text/babel">
-    const jsxElement = <div className="container">Hello World</div> 
-    ReactDOM.render(jsxElement, document.getElementById('root'))
+    // const jsxElement = <div className="container">Hello World</div> 
+    // ReactDOM.render(jsxElement, document.getElementById('root'))
+
+    const prop = 'container'
+    const children = 'Hello World again'
+    const element = <div className={prop}>{children}</div>
+    ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
