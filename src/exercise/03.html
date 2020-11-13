@@ -11,9 +11,15 @@
     // const jsxElement = <div className="container">Hello World</div> 
     // ReactDOM.render(jsxElement, document.getElementById('root'))
 
-    const prop = 'container'
-    const children = 'Hello World again'
-    const element = <div className={prop}>{children}</div>
+    // const prop = 'container'
+    // const children = 'Hello World again'
+    // const element = <div className={prop}>{children}</div>
+    // ReactDOM.render(element, document.getElementById('root'))
+
+    const className = 'container'
+    const children = 'Hello World for the third time'
+    const props = {children, className}
+    const element = <div {...props} />
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
