@@ -1,16 +1,31 @@
 <!-- Creating custom components -->
 <!-- http://localhost:3000/isolated/exercise/04.html -->
-
 <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   <script type="text/babel">
+    const PropTypes = {
+          string(props, propName, componentName) {
+            if (typeof props[propName] !== 'string') {
+              return new Error(`${componentName}.${propName} must be a string!`)
+            }
+          },
+        }
 
     function Message({children}) {
       return <div className="message">{children}</div>
     }
+
+    function MessageWithTypeCheck({subject, greeting}) {
+      return <div className="message">{greeting}, {subject} </div>
+    }
+
+    MessageWithTypeCheck.propTypes = {
+      greeting: PropTypes.string
+    }
+    
 
     const element = (
       <div className="container">
@@ -23,6 +38,8 @@
         <Message>Hello Extra2 Wolrd!</Message>
         <Message>Goodbye Extra2 Wolrd!</Message>
 
+        <MessageWithTypeCheck greeting="Hello" subject="Extra3 World"/>
+        <MessageWithTypeCheck greeting="Goodbbye" subject="Extra3 World"/>
       </div>
     )
 
