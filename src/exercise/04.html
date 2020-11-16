@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   <script type="text/babel">
 
+    // 04
     function message({children}) {
       return <div className="message">{children}</div>
     }
@@ -16,8 +17,12 @@
       <div className="container">
         {message({children: 'Hello World!'})}
         {message({children: 'Goodbye World!'})}
+        
+        {React.createElement(message, {children: 'Hello Extra1 World'})}
+        {React.createElement(message, {children: 'Goodbye Extra1 World'})}
       </div>
     )
+
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
